@@ -6,8 +6,7 @@ function! FindHelp()
   redraw!
 
   if v:shell_error == 0 && !empty(output)
-    1 wincmd w
-    wincmd o
+    call ShowOnlyFirstWindow()
     exe 'vsplit' . output
   endif
 endfunction
@@ -21,8 +20,7 @@ function! ShowPaths()
   redraw!
 
   if v:shell_error == 0 && !empty(output)
-    1 wincmd w
-    wincmd o
+    call ShowOnlyFirstWindow()
     vnew
     call append(0, split(output))
   endif

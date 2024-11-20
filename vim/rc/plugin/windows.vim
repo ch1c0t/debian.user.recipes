@@ -8,3 +8,8 @@ nnoremap <M-h> <c-w>h
 nnoremap <M-j> <c-w>j
 nnoremap <M-k> <c-w>k
 nnoremap <M-l> <c-w>l
+
+function! ShowOnlyFirstWindow()
+  1 wincmd w
+  wincmd o
+endfunction
