@@ -11,9 +11,9 @@ include_recipe 'gtk'
 
 include_recipe 'mise'
 include_recipe 'nodejs'
+include_recipe 'rust'
 include_recipe 'ruby'
 
 include_recipe 'clipboard'
 
-include_recipe 'rust'
 include_recipe 'vim'
