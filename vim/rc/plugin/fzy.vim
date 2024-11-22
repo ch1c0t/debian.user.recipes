@@ -7,7 +7,7 @@ function! FindHelp()
   redraw!
 
   if v:shell_error == 0 && !empty(tag_name)
-    call ShowOnlyFirstWindow()
+    ShowOnlyFirstWindow
     execute "help " . tag_name
   endif
 endfunction
@@ -21,7 +21,7 @@ function! ShowPaths()
   redraw!
 
   if v:shell_error == 0 && !empty(output)
-    call ShowOnlyFirstWindow()
+    ShowOnlyFirstWindow
     vnew
     call append(0, split(output))
   endif
