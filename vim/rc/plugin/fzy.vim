@@ -1,13 +1,14 @@
 function! FindHelp()
   try
-    let output = system("find . -type f | fzy")
+    let $VIM_RUNTIMEPATH = &runtimepath
+    let tag_name = system("vim-helptags | fzy")
   catch /Vim:Interrupt/
   endtry
   redraw!
 
-  if v:shell_error == 0 && !empty(output)
+  if v:shell_error == 0 && !empty(tag_name)
     call ShowOnlyFirstWindow()
-    exe 'vsplit' . output
+    execute "help " . tag_name
   endif
 endfunction
 
