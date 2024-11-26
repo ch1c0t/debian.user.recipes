@@ -1,1 +1,1 @@
-execute 'vim -c "CocInstall coc-rust-analyzer | q"'
+execute 'vim -c +InstallCocExtentions +qa'
