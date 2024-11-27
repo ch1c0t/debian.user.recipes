@@ -3,5 +3,6 @@
     "$HOME",
     "$HOME/.cargo/**",
     "$HOME/.rustup/**"
-  ]
+  ],
+  "suggest.noselect": true
 }
