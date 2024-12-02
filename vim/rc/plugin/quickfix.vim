@@ -20,7 +20,11 @@ endfunction
 command! ShowLocationList call ShowLocationList()
 function! ShowLocationList()
   ShowOnlyFirstWindow
-  lopen
+  if empty(getloclist(0))
+    CocDiagnostics
+  else
+    lopen
+  endif
 endfunction
 
 hi QuickFixLine ctermbg=Red
