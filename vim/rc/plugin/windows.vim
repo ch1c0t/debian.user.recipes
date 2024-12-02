@@ -9,6 +9,7 @@ nnoremap <M-j> <c-w>j
 nnoremap <M-k> <c-w>k
 nnoremap <M-l> <c-w>l
 
+nnoremap <leader>o :ShowOnlyFirstWindow<cr>
 command! ShowOnlyFirstWindow call ShowOnlyFirstWindow()
 function! ShowOnlyFirstWindow()
   1 wincmd w
