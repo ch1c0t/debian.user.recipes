@@ -12,5 +12,5 @@ nnoremap <M-l> <c-w>l
 command! ShowOnlyFirstWindow call ShowOnlyFirstWindow()
 function! ShowOnlyFirstWindow()
   1 wincmd w
-  wincmd o
+  silent! execute "wincmd o"
 endfunction

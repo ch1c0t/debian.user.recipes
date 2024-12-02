@@ -8,6 +8,21 @@ nnoremap [l :lprevious<cr>
 nnoremap ]L :lnewer<cr>
 nnoremap [L :lolder<cr>
 
+nnoremap <leader>q :ShowQuickfixList<cr>
+nnoremap <leader>l :ShowLocationList<cr>
+
+command! ShowQuickfixList call ShowQuickfixList()
+function! ShowQuickfixList()
+  ShowOnlyFirstWindow
+  cwindow
+endfunction
+
+command! ShowLocationList call ShowLocationList()
+function! ShowLocationList()
+  ShowOnlyFirstWindow
+  lopen
+endfunction
+
 hi QuickFixLine ctermbg=Red
 
 " https://vi.stackexchange.com/a/21739
