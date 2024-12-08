@@ -4,3 +4,5 @@ bindkey -e
 bindkey '^j' autosuggest-execute
 bindkey '\ev' vi-cmd-mode
 bindkey -s '\eeh' '^l bindkey -l^M'
+
+. $(dirname $0)/bindkey/open-tig.sh
