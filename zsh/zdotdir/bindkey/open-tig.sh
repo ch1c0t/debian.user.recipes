@@ -1,6 +1,7 @@
-# https://unix.stackexchange.com/questions/668869/zsh-bindkey-to-run-command-and-hit-enter
+# https://unix.stackexchange.com/questions/668869/zsh-bindkey-to-run-command-and-hit-enterêkj
+# https://unix.stackexchange.com/questions/550688/how-to-open-vim-inside-a-bash-script/550697#550697
 function open-tig {
-  tig
+  < /dev/tty tig
   zle redisplay
 }
 
