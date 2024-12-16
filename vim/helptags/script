@@ -1,7 +1,0 @@
-#!/bin/sh
-
-IFS=","
-for path in $VIM_RUNTIMEPATH; do
-  #echo $path"\n"
-  printf "$path "
-done

@@ -1,3 +1,4 @@
+nmap <silent> <leader>h :call FindHelp()<cr>
 function! FindHelp()
   try
     let $VIM_RUNTIMEPATH = &runtimepath
