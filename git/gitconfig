@@ -6,7 +6,7 @@
 [core]
 	excludesfile = ~/.config/git/global_gitignore
 [alias]
-	co = checkout
+	ch = checkout
 	br = branch
 	ci = commit
 	st = status
@@ -14,6 +14,9 @@
 	r = "!git clean -fd; git reset HEAD --hard"
 	update = "!git pull && git submodule update --init --recursive"
 	lo = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+	di = -P diff
+	ad = add -A
+	co = commit -m
 [github]
 	user = ch1c0t
 [init]
