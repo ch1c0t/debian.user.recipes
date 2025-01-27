@@ -14,3 +14,11 @@ bindkey '^[OA' up-line-or-beginning-search
 bindkey '^[OB' down-line-or-beginning-search
 bindkey '^[[A' up-line-or-beginning-search
 bindkey '^[[B' down-line-or-beginning-search
+
+function h {
+  if [ -z "$*" ]; then
+    history 1
+  else
+    history 1 | egrep --color=auto "$@"
+  fi
+}
