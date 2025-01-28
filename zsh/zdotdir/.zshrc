@@ -13,3 +13,11 @@
 . $ZDOTDIR/mise.sh
 . $ZDOTDIR/android.sh
 . $ZDOTDIR/flutter.sh
+
+for f in $ZDOTDIR/zsh.d/*.sh(N); do
+  source $f
+done
+
+for f in $ZDOTDIR/zsh.d/*.zsh(N); do
+  source $f
+done
