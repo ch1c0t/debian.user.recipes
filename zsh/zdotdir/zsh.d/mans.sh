@@ -1,0 +1,14 @@
+function mans {
+    man -k . \
+    | fzf -n1,2 --preview "echo {} \
+    | cut -d' ' -f1 \
+    | sed 's# (#.#' \
+    | sed 's#)##' \
+    | xargs -I% man %" --bind "enter:execute: \
+      (echo {} \
+      | cut -d' ' -f1 \
+      | sed 's# (#.#' \
+      | sed 's#)##' \
+      | xargs -I% man % \
+      | less -R)"
+}
