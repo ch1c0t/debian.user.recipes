@@ -14,10 +14,6 @@
 . $ZDOTDIR/android.sh
 . $ZDOTDIR/flutter.sh
 
-for f in $ZDOTDIR/zsh.d/*.sh(N); do
-  source $f
-done
-
-for f in $ZDOTDIR/zsh.d/*.zsh(N); do
+for f in $ZDOTDIR/zsh.d/*.{sh,zsh}(N); do
   source $f
 done
