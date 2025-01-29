@@ -1,8 +1,2 @@
-function git-diff {
-  zle push-input
-  BUFFER="git diff"
-  zle accept-line
-}
-
-zle -N git-diff
-bindkey '^Xd' git-diff
+. $(dirname $0)/git/git-diff.sh
+. $(dirname $0)/git/git-log.sh

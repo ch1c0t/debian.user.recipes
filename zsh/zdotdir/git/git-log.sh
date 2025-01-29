@@ -1,4 +1,4 @@
-function glo {
+function git-log {
   git log --graph --color=always \
       --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" \
   | fzf --ansi --preview "echo {} \
@@ -13,3 +13,6 @@ function glo {
             {}
 FZF-EOF"
 }
+
+zle -N git-log
+bindkey '\egl' git-log
