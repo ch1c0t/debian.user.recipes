@@ -1,4 +1,4 @@
-function mans {
+function search-man {
     man -k . \
     | fzf -n1,2 --preview "echo {} \
     | cut -d' ' -f1 \
@@ -12,3 +12,6 @@ function mans {
       | xargs -I% man % \
       | less -R)"
 }
+
+zle -N search-man
+bindkey '\esm' search-man
