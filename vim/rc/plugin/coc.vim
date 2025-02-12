@@ -2,6 +2,7 @@ command! InstallCocExtentions call InstallCocExtentions()
 function! InstallCocExtentions()
   CocInstall coc-rust-analyzer
   CocInstall coc-json
+  CocInstall coc-tsserver
 endfunction
 
 " inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"

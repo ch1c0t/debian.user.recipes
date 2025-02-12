@@ -1,1 +1,1 @@
-execute 'vim -c +InstallCocExtentions +qa'
+execute "vim -c 'InstallCocExtentions' +qa"
