@@ -1,24 +1,33 @@
-" Vim syntax file
-" Language: Embedded Crystal <https://crystal-lang.org/api/latest/ECR.html>
-" Author: Jeffrey Crochet <jlcrochet91@pm.me>
-" URL: https://github.com/jlcrochet/vim-crystal
+if &syntax !~# '\<ecrystal\>' || get(b:, 'current_syntax') =~# '\<ecrystal\>'
+  finish
+endif
 
-let b:is_ecrystal = 1
+if !exists('main_syntax')
+  let main_syntax = 'ecrystal'
+endif
 
-unlet! b:current_syntax
+call ecrystal#SetSubtype()
 
-syn include @crystal syntax/crystal.vim
+if b:ecrystal_subtype !=# ''
+  exec 'runtime! syntax/'.b:ecrystal_subtype.'.vim'
+  unlet! b:current_syntax
+endif
 
-let b:current_syntax = "ecrystal"
+syn include @crystalTop syntax/crystal.vim
 
-syn cluster ecrystal contains=ecrystalTag,ecrystalComment,ecrystalTagEscape
+syn cluster ecrystalRegions contains=ecrystalControl,ecrystalRender,ecrystalComment
 
-syn region ecrystalTag matchgroup=ecrystalDelimiter start=/\%#=1<%-\==\=/ end=/\%#=1-\=%>/ contains=@crystal containedin=ALLBUT,@crystal,@ecrystal
-syn region ecrystalComment matchgroup=ecrystalCommentStart start=/\%#=1<%#/ matchgroup=ecrystalCommentEnd end=/\%#=1%>/ containedin=ALLBUT,@crystal,@ecrystal
-syn match ecrystalTagEscape /\%#=1<%%/ containedin=ALLBUT,@crystal,@ecrystal
+syn region ecrystalControl matchgroup=ecrystalDelimiter start="<%%\@!-\="  end="-\=%>" display contains=@crystalTop        containedin=ALLBUT,@ecrystalRegions
+syn region ecrystalRender  matchgroup=ecrystalDelimiter start="<%%\@!-\==" end="-\=%>" display contains=@crystalTop        containedin=ALLBUT,@ecrystalRegions
+syn region ecrystalComment matchgroup=ecrystalDelimiter start="<%%\@!-\=#" end="-\=%>" display contains=crystalTodo,@Spell containedin=ALLBUT,@ecrystalRegions
 
-hi def link ecrystalDelimiter Delimiter
-hi def link ecrystalComment Comment
-hi def link ecrystalCommentStart ecrystalComment
-hi def link ecrystalCommentEnd ecrystalCommentStart
-hi def link ecrystalTagEscape ecrystalDelimiter
+" Define the default highlighting.
+
+hi def link ecrystalDelimiter PreProc
+hi def link ecrystalComment   crystalComment
+
+let b:current_syntax = 'ecrystal'
+
+if exists('main_syntax') && main_syntax ==# 'ecrystal'
+  unlet main_syntax
+endif

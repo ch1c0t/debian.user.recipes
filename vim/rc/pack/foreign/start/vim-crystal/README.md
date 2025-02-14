@@ -1,155 +1,143 @@
-## Introduction
+Vim Filetype Support for [Crystal](http://crystal-lang.org/)
+============================================================
+[![CI](https://github.com/vim-crystal/vim-crystal/workflows/CI/badge.svg?event=push)](https://github.com/vim-crystal/vim-crystal/actions?query=CI+branch%3Amaster)
 
-This was originally a fork of [vim-crystal](https://github.com/vim-crystal/vim-crystal) that discarded many of the original's features in order to study how syntax highlighting and indentation could be improved. It turned into a complete rewrite of the original plugin and merging my changes was no longer feasible, so I decided to move it to a separate repository for anyone who wants a faster and more accurate alternative to the original vim-crystal.
+This is Vim filetype support for [Crystal programming language](http://crystal-lang.org/).
 
-This plugin includes support for [embedded crystal (ECR)](https://crystal-lang.org/api/latest/ECR.html).
+- `crystal` filetype detection
+- Syntax highlight
+- Indentation
+- eCrystal support
+- vim-matchit support
+- `crystal tool` integration ([implementations](http://crystal-lang.org/2015/09/05/tools.html),
+  [context](http://crystal-lang.org/2015/09/05/tools.html),
+  [formatter](http://crystal-lang.org/2015/10/16/crystal-0.9.0-released.html), and so on)
+- `crystal spec` integration
+- Syntax check (Using [Syntastic](https://github.com/scrooloose/syntastic))
+- Completion (currently for variable names)
+
+
 
 ## Installation
 
-This is a standard Vim plugin which can be installed using your plugin manager of choice. If you do not already have a plugin manager, I recommend [vim-plug](https://github.com/junegunn/vim-plug).
+Please copy `autoload`, `ftdetect`, `ftplugin`, `indent`, `plugin` and `syntax` directories into
+your `~/.vim` (or `~/vimfiles` in Windows) directory.
 
-## Configuration
+```
+$ cp -R autoload ftdetect ftplugin indent plugin syntax ~/.vim/
 
-#### `g:crystal_simple_indent`
+$ # If you use vim-syntastic
+$ cp -R syntax_checkers ~/.vim/
+```
 
-The default indentation style used by this plugin is the one most commonly found in the Crystal community, which allows for "hanging" or "floating" indentation. Some examples:
+If you use Vim8, `:packadd` is available to install. Please see `:help packages` for more details.
 
-~~~crystal
-x = if y
-      5
-    else
-      10
-    end
+Otherwise, please use your favorite plugin manager like [vim-plug](https://github.com/junegunn/vim-plug).
 
-x = begin
-      h["foo"]
-    rescue KeyError
-      "Not found"
-    end
 
-x = case y
-    when :foo
-      5
-    when :bar
-      10
-    else
-      1
-    end
 
-x = [:foo, :bar,
-     :baz, :qux]
+## Syntax Highlight
 
-x = 5 + 10 +
-    15 + 20 -
-    5 * 3
+![screenshot](https://raw.githubusercontent.com/rhysd/ss/master/vim-crystal/highlight1.png)
 
-x = y.foo
-     .bar
-     .baz
-~~~
+This plugin was firstly imported from Ruby's filetype plugin.  There are many differences between
+Ruby and Crystal but vim-crystal can't support all of them yet.  In addition, Crystal is growing
+rapidly and being added many changes.  If you've found some issues or points to improve, pull
+requests and issues are welcome.
 
-For those who prefer a more traditional indentation style or who desire slightly faster highlighting and indentation, set `g:crystal_simple_indent` to `1`. The above examples will now be indented thus:
 
-~~~crystal
-x = if y
-  5
-else
-  10
-end
 
-x = begin
-  h["foo"]
-rescue KeyError
-  "Not Found"
-end
+## Spec Integration
 
-x = case y
-when :foo
-  5
-when :bar
-  10
-else
-  1
-end
+![screen shot: run spec](https://raw.githubusercontent.com/rhysd/ss/master/vim-crystal/spec.gif)
 
-x = [:foo, :bar,
-  :baz, :qux]
-# OR
-x = [
-  :foo, :bar,
-  :baz, :qux
-]
+Running spec(s) and show the result in Vim.  The output is colorful if possible as executed in CLI.
 
-x = 5 + 10 +
-  15 + 20 -
-  5 * 3
-# OR
-x =
-  5 + 10 +
-  15 + 20 -
-  5 * 3
+### `:CrystalSpecSwitch` (mapping to `gss`)
 
-x = y.foo
-  .bar
-  .baz
-# OR
-x = y
-  .foo
-  .bar
-  .baz
-~~~
+It switches current source file and its spec file.  This command assumes the standard directory
+layout which `crystal init` generates.
 
-#### `g:crystal_markdown_comments`
+If you don't set `g:crystal_define_mappings` to 0, you can use this feature with mapping `gss`.
 
-This variable controls whether or not Markdown should be highlighted in comments; it can have three possible values:
+### `:CrystalSpecRunAll` (mapping to `gsa`)
 
-* `0`: Disabled (default)
-* `1`: Enabled
-* `2`: Enabled; additionally, code lines &mdash; that is, lines that begin with at least four spaces or one tab or are inside of a fenced code block (delimited with ` ``` ` or `~~~`) &mdash; will be highlighted as Crystal code unless the language for the block is set to anything other than `crystal` (good for writing documentation)
+It runs the all specs for current file's project.
 
-Setting to `1` or `2` may cause highlighting to become slower in files with lots of comments.
+If you don't set `g:crystal_define_mappings` to 0, you can use this feature with mapping `gsa`.
 
-NOTE: I haven't yet been able to find an exhaustive summary of which Markdown features are supported by Crystal, so for now, only the basic features are supported in addition to fenced code blocks (delimited with ` ``` ` or `~~~`).
+### `:CrystalSpecRunCurrent` (mapping to `gsc`)
 
-Additionally, the only decorations that are currently allowed to span multiple lines are fenced code blocks. For example, the following will not be highlighted properly:
+It runs spec for current buffer.
 
-~~~crystal
-# `1 + 2 +
-# 3`
-~~~
+1. When current buffer is a spec source, `:CrystalSpecRunCurrent` runs the spec under the cursor.
+   You should execute this command after moving cursor to `it ... do` line or `describe ... do` line.
+2. When current buffer is not a spec source, `:CrystalSpecRunCurrent` finds corresponding spec source
+   and runs all specs in the source.
 
-But this will:
+If you don't set `g:crystal_define_mappings` to 0, you can use this feature with mapping `gsc`.
 
-~~~crystal
-# ```
-# 1 + 2 +
-# 3
-# ```
-~~~
+## Formatter Integration
 
-#### `g:ecrystal_extensions`
+![format screenshot](https://raw.githubusercontent.com/rhysd/ss/master/vim-crystal/formatting.gif)
 
-This plugin uses a dictionary of filetype extensions to determine which filetype to use when loading ECR files. For example, opening a file named `foo.html.ecr` will load HTML as the filetype with ECR syntax added on top.
+You can run formatter manually by `:CrystalFormat` or automatically at saving buffer.
 
-The default recognized filetype extensions are as follows:
+When you set `g:crystal_auto_format` to `1`, current buffer is automatically formatted on `BufWritePre`.
+The variable is set to `0` by default because `crystal tool format` currently seems buggy.
 
-~~~
-.html => html
-.js => javascript
-~~~
 
-Each extension maps to the name of the filetype that you want to load for that extension.
+## Tool Integration
 
-To add or overwrite entries in the dictionary, set `g:ecrystal_extensions` to a dictionary with the entries you want to inject. For example, the following would allow the plugin to recognize `*.md` files as Markdown:
+### `:CrystalDef` (mapping to `gd`)
 
-~~~vim
-let g:ecrystal_extensions = #{ md: "markdown" }
-~~~
+It makes cursor jump to the definition of name under the cursor.  This command uses `crystal tool implementations`.
 
-If no subtype is specified in the file name itself (e.g., `foo.ecr`), the value of `g:ecrystal_default_subtype` is used as the subtype.
+![screenshot](https://raw.githubusercontent.com/rhysd/ss/master/vim-crystal/jump-to-definition.gif)
 
-#### `g:ecrystal_default_subtype`
+If you don't set `g:crystal_define_mappings` to 0, you can use this feature with mapping `gd`.
 
-Determines the default subtype to use for ECR files when no subtype is specified in the file name itself (e.g., `foo.ecr`).
+### `:CrystalContext` (mapping to `gc`)
 
-The default value is `html`. Setting this to nothing (`let g:ecrystal_default_subtype = ""`) will cause no subtype to be used.
+It shows the _context_ under the cursor. Context includes variable names and their types.
+
+![screenshot](https://raw.githubusercontent.com/rhysd/ss/master/vim-crystal/show-context.gif)
+
+If you don't set `g:crystal_define_mappings` to 0, you can use this feature with mapping `gc`.
+
+### `:CrystalHierarchy`
+
+It shows types hierarchy of current code.
+
+![screenshot](https://raw.githubusercontent.com/rhysd/ss/master/vim-crystal/show-hierarchy.gif)
+
+### `:CrystalImpl`
+
+It shows how the identifier under the cursor is implemented. For example, when the cursor is on some
+property of an object instance, `:CrystalImpl` would report where the property is defined with
+`property` macro.
+
+### `:CrystalExpand`
+
+It expands macro invocation under the cursor.
+
+
+## Completion
+
+Omni completion for crystal can be used by `<C-x><C-o>`.  (Please see `:help ins-completion`)
+
+![screenshot](https://raw.githubusercontent.com/rhysd/ss/master/vim-crystal/completion.gif)
+
+Currently you can complete only variable names. If you want more advanced completion, please
+consider to use a language server like [crystalline](https://github.com/elbywan/crystalline).
+
+If you want to disable this feature, set `0` to `g:crystal_enable_completion`.
+
+## Maintainers
+
+- [@rhysd](https://github.com/rhysd) (author, maintainer)
+
+## License
+
+This plugin is distributed under the [MIT License](http://opensource.org/licenses/MIT).
+Please read [LICENSE.txt](LICENSE.txt).
