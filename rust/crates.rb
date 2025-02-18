@@ -1,2 +1,7 @@
-execute 'mise use -g cargo:eza'
-execute 'mise use -g cargo:zoxide'
+%w[
+zoxide
+eza
+hexyl
+].each do |crate|
+  execute "cargo install #{crate}"
+end
