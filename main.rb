@@ -13,6 +13,8 @@ include_recipe 'mise'
 include_recipe 'nodejs'
 include_recipe 'rust'
 include_recipe 'ruby'
+include_recipe 'crystal'
+include_recipe 'python'
 
 include_recipe 'clipboard'
 
