@@ -1,6 +1,6 @@
 HOME = ENV['HOME']
 
-include_recipe 'base'
+include_recipe 'directories'
 include_recipe 'zsh'
 include_recipe 'tmux'
 include_recipe 'git'
