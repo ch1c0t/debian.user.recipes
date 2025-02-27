@@ -1,19 +1,5 @@
-alias be='bundle exec'
-
-alias s="systemctl"
-alias u="systemctl --user"
-alias j="journalctl"
-alias ju="journalctl --user"
-
-alias bus="busctl"
-alias bu="busctl --user"
-alias tm="tmuxinator"
-alias n="nvim"
-alias l="exa -lah"
-alias fd="fdfind"
-alias bat="batcat"
-alias bt="batcat"
-
-e() {
-  ${EDITOR} $1
-}
+. $(dirname $0)/alias/editor.sh
+. $(dirname $0)/alias/systemd.sh
+. $(dirname $0)/alias/ruby.sh
+. $(dirname $0)/alias/tmux.sh
+. $(dirname $0)/alias/other.sh
