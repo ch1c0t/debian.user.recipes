@@ -1,5 +1,6 @@
-. $ZDOTDIR/misc.sh
-. $ZDOTDIR/comp.sh
+. $ZDOTDIR/setopt.sh
+. $ZDOTDIR/bindkey.sh
+. $ZDOTDIR/completion.sh
 . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 . /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 . $ZDOTDIR/env.sh
@@ -8,8 +9,7 @@
 . $ZDOTDIR/git.sh
 . $ZDOTDIR/fzf.sh
 . $ZDOTDIR/execute-mitamae-recipe.sh
-. $ZDOTDIR/bindkey.sh
-. $ZDOTDIR/hist.sh
+. $ZDOTDIR/history.sh
 . $ZDOTDIR/mise.sh
 . $ZDOTDIR/android.sh
 . $ZDOTDIR/flutter.sh
