@@ -1,3 +1,5 @@
+HOME = ENV['HOME']
+
 remote_file "#{HOME}/.zshenv" do
   source 'zdotdir/.zshenv'
 end

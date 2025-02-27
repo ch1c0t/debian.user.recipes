@@ -1,3 +1,5 @@
+HOME = ENV['HOME']
+
 remote_file "#{HOME}/.xsession" do
   source '.xsession'
 end

@@ -1,3 +1,5 @@
+HOME = ENV['HOME']
+
 directory "#{HOME}/.config/systemd/user"
 remote_file "#{HOME}/.config/systemd/user/clipboard.service" do
   source 'clipboard.service'

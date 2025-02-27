@@ -1,3 +1,5 @@
+HOME = ENV['HOME']
+
 directory "#{HOME}/.config/tmux"
 
 remote_file "#{HOME}/.config/tmux/tmux.conf" do

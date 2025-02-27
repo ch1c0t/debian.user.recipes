@@ -7,7 +7,7 @@
 . $ZDOTDIR/prompt.sh
 . $ZDOTDIR/git.sh
 . $ZDOTDIR/fzf.sh
-. $ZDOTDIR/mu.sh
+. $ZDOTDIR/execute-mitamae-recipe.sh
 . $ZDOTDIR/bindkey.sh
 . $ZDOTDIR/hist.sh
 . $ZDOTDIR/mise.sh

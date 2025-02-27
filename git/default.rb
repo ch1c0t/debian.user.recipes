@@ -1,3 +1,5 @@
+HOME = ENV['HOME']
+
 directory "#{HOME}/.config/git"
 
 remote_file "#{HOME}/.config/git/config" do
