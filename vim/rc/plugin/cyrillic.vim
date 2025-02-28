@@ -7,3 +7,5 @@ nnoremap д l
 
 nnoremap Ф A
 nnoremap Ш I
+
+nnoremap Ж :
