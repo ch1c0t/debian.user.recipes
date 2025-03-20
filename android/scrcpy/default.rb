@@ -1,8 +1,8 @@
 HOME = ENV['HOME']
 dir = "#{HOME}/archive/scrcpy-linux"
-version = 'x86_64-v3.1'
+version = 'x86_64-v3.1-5689'
 subdir_name = "scrcpy-linux-#{version}"
-url = "https://github.com/Genymobile/scrcpy/releases/download/v3.1/#{subdir_name}.tar.gz"
+url = "https://tmp.rom1v.com/scrcpy/5689/1/#{subdir_name}.tar.gz"
 
 commands = """
 mkdir -p #{dir}
