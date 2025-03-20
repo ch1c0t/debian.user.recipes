@@ -4,12 +4,12 @@ function execute-mitamae-recipe-at {
 
   case $path_type in
     directory)
-      mitamae local $1/default.rb
+      mitamae local --node-yaml ~/.config/recipes/node.yml $1/default.rb
       ;;
     *)
       case ${1:e} in
         rb)
-          mitamae local $1
+          mitamae local --node-yaml ~/.config/recipes/node.yml $1
           ;;
         list)
           echo "Executing a list of recipes at $1:"
