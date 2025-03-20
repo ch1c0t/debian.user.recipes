@@ -10,3 +10,5 @@ end
 
 directory "#{HOME}/.local/share/zsh"
 directory "#{HOME}/.cache/zsh"
+
+template "#{HOME}/.config/zsh/zsh.d/scrcpy.sh"
