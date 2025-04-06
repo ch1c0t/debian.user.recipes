@@ -1,1 +1,1 @@
-execute '~/.local/bin/mise use -g ruby@3.3'
+execute '~/.local/bin/mise use -g ruby@3.4'
