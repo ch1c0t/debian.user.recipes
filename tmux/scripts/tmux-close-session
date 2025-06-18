@@ -1,0 +1,4 @@
+#!/usr/bin/sh
+session_to_close=$(tmux display-message -p "#S")
+tmux switch-client -l
+tmux kill-session -t $session_to_close

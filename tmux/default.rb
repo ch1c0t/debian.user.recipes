@@ -8,3 +8,4 @@ end
 
 include_recipe 'pane_movements'
 include_recipe 'session_wizard'
+include_recipe 'scripts'
