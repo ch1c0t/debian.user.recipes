@@ -2,10 +2,9 @@ HOME = ENV['HOME']
 TMUX_SOURCES = "#{HOME}/sources/tmux"
 
 directory TMUX_SOURCES
-directory "#{HOME}/.config/tmux"
 
-remote_file "#{HOME}/.config/tmux/tmux.conf" do
-  source 'tmux.conf'
+remote_directory "#{HOME}/.config/tmux" do
+  source 'conf'
 end
 
 include_recipe 'scripts'
