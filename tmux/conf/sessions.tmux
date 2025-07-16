@@ -10,4 +10,4 @@ bind -n M-s display-popup \
   -h 80% \
   -E 'tmux.select-or-create-session'
 
-run "zoxide query --list > /dev/null" # to precache
+run "zoxide query --list > /dev/null &" # to precache
