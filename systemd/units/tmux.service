@@ -1,0 +1,11 @@
+[Unit]
+Description=tmux server
+
+[Service]
+Type=forking
+ExecStart=%h/.local/bin/tmux.startup
+Environment=DISPLAY=:1
+Environment=XAUTHORITY=%h/.Xauthority
+
+[Install]
+WantedBy=default.target
