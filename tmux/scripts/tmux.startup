@@ -1,3 +1,4 @@
 #!/usr/bin/zsh
+export FZF_DEFAULT_OPTS='--reverse --height 100%'
 zoxide query --list > /dev/null &
 tmux new-session -s 0 -d
