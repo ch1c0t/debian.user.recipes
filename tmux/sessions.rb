@@ -14,3 +14,7 @@ end
 link "#{HOME}/.local/bin/tmux.select-or-create-session" do
   to TMUX_SOCS_BINARY
 end
+
+link "#{HOME}/.local/bin/tmux.alternate-session" do
+  to "#{TMUX_SOCS}/bin/tmux.alternate-session"
+end
