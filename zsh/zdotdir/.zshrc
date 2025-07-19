@@ -14,6 +14,7 @@
 . $ZDOTDIR/android.sh
 . $ZDOTDIR/flutter.sh
 . $ZDOTDIR/zoxide.sh
+. $ZDOTDIR/tmux.sh
 
 for f in $ZDOTDIR/zsh.d/*.{sh,zsh}(N); do
   source $f
