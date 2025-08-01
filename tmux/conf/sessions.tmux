@@ -6,6 +6,6 @@ bind X run "tmux.close-session"
 bind x kill-pane
 
 bind -n M-s display-popup \
-  -w 80% \
-  -h 80% \
+  -w 100% \
+  -h 100% \
   -E 'tmux.select-or-create-session'
