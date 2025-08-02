@@ -1,5 +1,7 @@
 HOME = ENV['HOME']
 
+include_recipe 'helpers'
+
 include_recipe 'directories'
 include_recipe 'config'
 include_recipe 'zsh'
