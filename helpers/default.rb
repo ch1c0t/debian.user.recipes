@@ -7,11 +7,13 @@ define :links_in, to_each_file_in: nil do
     raise "The source directory should be passed in the 'to_each_file_in' attribute."
   end
 
-  relatives = ['.','..']
-  Dir.foreach source_directory do |file|
-    unless relatives.include? file
-      link "#{destination_directory}/#{file}" do
-        to "#{source_directory}/#{file}"
+  if Dir.exist? source_directory
+    relatives = ['.','..']
+    Dir.foreach source_directory do |file|
+      unless relatives.include? file
+        link "#{destination_directory}/#{file}" do
+          to "#{source_directory}/#{file}"
+        end
       end
     end
   end
