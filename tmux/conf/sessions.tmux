@@ -8,4 +8,4 @@ bind x kill-pane
 bind -n M-s display-popup \
   -w 100% \
   -h 100% \
-  -E 'tmux.select-or-create-session'
+  -E 'tmux.select-or-create'
