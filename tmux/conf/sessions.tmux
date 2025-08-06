@@ -4,6 +4,7 @@ set-option -g detach-on-destroy off
 bind -n M-a run "tmux.alternate-session"
 bind X run "tmux.close-session"
 bind x kill-pane
+bind M-x run "tmux.close-project"
 
 bind -n M-s display-popup \
   -w 100% \
