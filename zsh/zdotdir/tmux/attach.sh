@@ -8,4 +8,4 @@ function tmux-attach {
 }
 
 zle -N tmux-attach
-bindkey '\eta' tmux-attach
+bindkey '\ea' tmux-attach
