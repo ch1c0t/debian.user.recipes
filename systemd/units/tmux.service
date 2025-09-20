@@ -4,7 +4,7 @@ Description=tmux server
 [Service]
 Type=forking
 ExecStart=%h/.local/bin/tmux.startup
-Environment=DISPLAY=:1
+Environment=DISPLAY=:0
 Environment=XAUTHORITY=%h/.Xauthority
 
 [Install]

@@ -5,4 +5,9 @@ remote_directory "#{SYSTEMD_CONFIG}/user" do
   source 'units'
 end
 
-execute 'systemctl --user enable tmux.service'
+%w[
+tmux.service
+clipboard.service
+].each do |service|
+  execute "systemctl --user enable #{service}"
+end
