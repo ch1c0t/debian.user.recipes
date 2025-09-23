@@ -5,5 +5,5 @@ execute '~/.local/bin/mise use -g uv@latest'
 yt-dlp
 litecli
 ].each do |package|
-  execute "pip install #{package}"
+  execute "zsh -c 'pip install #{package}'"
 end
