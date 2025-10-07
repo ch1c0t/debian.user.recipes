@@ -14,3 +14,8 @@ end
 remote_file "#{HOME}/.config/i3status/config" do
   source 'i3status.config'
 end
+
+include_recipe '../helpers'
+links_in "#{HOME}/.local/bin" do
+  to_each_file_in "#{File.dirname(__FILE__)}/scripts"
+end
