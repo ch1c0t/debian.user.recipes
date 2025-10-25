@@ -1,4 +1,4 @@
-execute '~/.local/bin/mise use -g python@3.13'
+execute '~/.local/bin/mise use -g python@3.14'
 execute '~/.local/bin/mise use -g uv@latest'
 
 %w[
