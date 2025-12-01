@@ -1,1 +1,1 @@
-execute '~/.local/bin/mise use -g node@22'
+execute '~/.local/bin/mise use -g node@24'
