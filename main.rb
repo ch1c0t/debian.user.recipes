@@ -23,5 +23,6 @@ include_recipe 'python'
 include_recipe 'clipboard'
 
 include_recipe 'vim'
+include_recipe 'neovim'
 
 include_recipe 'systemd'
