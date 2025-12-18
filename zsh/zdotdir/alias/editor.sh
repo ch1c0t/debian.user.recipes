@@ -3,3 +3,4 @@ e() {
 }
 
 alias n="nvim"
+alias code="codium"
