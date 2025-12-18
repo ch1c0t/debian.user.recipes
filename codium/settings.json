@@ -1,3 +1,6 @@
 {
-    "editor.lineNumbers": "relative"
+    "editor.lineNumbers": "relative",
+    "extensions.experimental.affinity": {
+      "asvetliakov.vscode-neovim": 1
+    }
 }
