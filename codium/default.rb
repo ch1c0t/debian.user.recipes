@@ -8,6 +8,10 @@ remote_file "#{HOME}/.config/VSCodium/User/settings.json" do
   source 'settings.json'
 end
 
+remote_file "#{HOME}/.config/VSCodium/User/keybindings.json" do
+  source 'keybindings.json'
+end
+
 extensions = [
   'DanielX.civet',
   'asvetliakov.vscode-neovim',

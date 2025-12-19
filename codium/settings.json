@@ -1,6 +1,11 @@
 {
-    "editor.lineNumbers": "relative",
-    "extensions.experimental.affinity": {
-      "asvetliakov.vscode-neovim": 1
+  "editor.lineNumbers": "relative",
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "vscode-neovim.compositeKeys": {
+    "jk": {
+      "command": "vscode-neovim.escape"
     }
+  }
 }

@@ -1,0 +1,6 @@
+[
+  {
+    "key": "alt+t",
+    "command": "workbench.action.toggleSidebar"
+  }
+]
