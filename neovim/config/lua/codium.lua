@@ -8,6 +8,11 @@ local mappings = {
   { 'v', 'w', 'cursorWordPartRightSelect' },
   { 'v', 'b', 'cursorWordPartLeftSelect' },
 
+  { 'n', '<leader>gy', 'editor.action.goToTypeDefinition' },
+  { 'n', '<leader>gi', 'editor.action.goToImplementation' },
+  { 'n', '<leader>gr', 'editor.action.goToReferences' },
+  { 'n', '<leader>gs', 'workbench.action.gotoSymbol' },
+
   { 'n', '<leader>nf', 'workbench.action.navigateForward' },
   { 'n', '<leader>nb', 'workbench.action.navigateBack' },
   { 'n', '<leader>je', 'workbench.action.navigateToLastEditLocation' },
