@@ -7,6 +7,10 @@ local mappings = {
   { 'n', 'b', 'cursorWordPartLeft' },
   { 'v', 'w', 'cursorWordPartRightSelect' },
   { 'v', 'b', 'cursorWordPartLeftSelect' },
+
+  { 'n', '<leader>nf', 'workbench.action.navigateForward' },
+  { 'n', '<leader>nb', 'workbench.action.navigateBack' },
+  { 'n', '<leader>je', 'workbench.action.navigateToLastEditLocation' },
 }
 
 for _, mapping in ipairs(mappings) do
