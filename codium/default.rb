@@ -15,6 +15,7 @@ end
 extensions = [
   'DanielX.civet',
   'asvetliakov.vscode-neovim',
+  'sleistner.vscode-fileutils',
 ]
 
 extensions.each do |name|
