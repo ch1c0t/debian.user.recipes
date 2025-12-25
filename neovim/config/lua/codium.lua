@@ -1,8 +1,6 @@
 local opts = { noremap = true, silent = true }
 
 local mappings = {
-  { 'n', '<leader>re', 'editor.action.rename' },
-
   { 'n', 'w', 'cursorWordPartRight' },
   { 'n', 'b', 'cursorWordPartLeft' },
   { 'v', 'w', 'cursorWordPartRightSelect' },
@@ -28,6 +26,15 @@ local mappings = {
 
   { 'n', '<leader>fr', 'references-view.findReferences' },
   { 'n', '<leader>sr', 'editor.action.referenceSearch.trigger' },
+
+  { 'n', '<leader>ff', 'actions.find' },
+  { 'n', '<leader>fr', 'editor.action.startFindReplaceAction' },
+  { 'n', '<leader>fg', 'workbench.action.findInFiles' },
+  { 'n', '<leader>rg', 'workbench.action.replaceInFiles' },
+  { 'n', '<leader>re', 'editor.action.rename' },
+  { 'n', '<leader>rf', 'editor.action.refactor' },
+  { 'n', '<leader>qf', 'editor.action.quickFix' },
+  { 'n', '<leader>sg', 'editor.action.triggerSuggest' },
 }
 
 for _, mapping in ipairs(mappings) do
