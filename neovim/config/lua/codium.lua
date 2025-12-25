@@ -13,6 +13,8 @@ local mappings = {
 
   { 'n', '<leader>nf', 'workbench.action.navigateForward' },
   { 'n', '<leader>nb', 'workbench.action.navigateBack' },
+  { 'n', '<leader>en', 'editor.action.marker.next' },
+  { 'n', '<leader>ep', 'editor.action.marker.prev' },
   { 'n', '<leader>je', 'workbench.action.navigateToLastEditLocation' },
 
   { 'n', '<leader>ss', 'workbench.action.showAllSymbols' },
