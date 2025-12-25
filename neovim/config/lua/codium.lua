@@ -40,6 +40,16 @@ local mappings = {
 
   { 'n', '<leader>fm', 'editor.action.formatDocument' },
   { 'n', '<leader>oi', 'editor.action.organizeImports' },
+
+  { 'n', '<leader>cp', 'copyFilePath' },
+  { 'n', '<leader>cr', 'copyRelativeFilePath' },
+  { 'n', '<leader>rl', 'workbench.action.openRecent' },
+  { 'n', '<leader>nf', 'workbench.action.files.newUntitledFile' },
+  { 'n', '<leader>cf', 'workbench.action.closeActiveEditor' },
+  { 'n', '<leader>fa', 'workbench.action.closeAllEditors' },
+  { 'n', '<leader>of', 'workbench.action.files.openFile' },
+  { 'n', '<leader>rw', 'workbench.action.reloadWindow' },
+  { 'n', '<leader>os', 'workbench.action.openSettingsJson' },
 }
 
 for _, mapping in ipairs(mappings) do
