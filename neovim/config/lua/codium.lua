@@ -50,6 +50,11 @@ local mappings = {
   { 'n', '<leader>of', 'workbench.action.files.openFile' },
   { 'n', '<leader>rw', 'workbench.action.reloadWindow' },
   { 'n', '<leader>os', 'workbench.action.openSettingsJson' },
+
+  { 'n', '<leader>wv', 'workbench.action.splitEditor' },
+  { 'n', '<leader>wh', 'workbench.action.splitEditorDown' },
+  { 'n', '<leader>ww', 'workbench.action.joinTwoGroups' },
+  { 'n', '<leader>wa', 'workbench.action.evenEditorWidths' },
 }
 
 for _, mapping in ipairs(mappings) do

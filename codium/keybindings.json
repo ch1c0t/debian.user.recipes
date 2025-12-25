@@ -2,5 +2,25 @@
   {
     "key": "alt+t",
     "command": "workbench.action.toggleSidebar"
+  },
+  {
+    "key": "alt+h",
+    "command": "workbench.action.navigateLeft",
+    "when": "editorFocus"
+  },
+  {
+    "key": "alt+j",
+    "command": "workbench.action.navigateDown",
+    "when": "editorFocus"
+  },
+  {
+    "key": "alt+k",
+    "command": "workbench.action.navigateUp",
+    "when": "editorFocus"
+  },
+  {
+    "key": "alt+l",
+    "command": "workbench.action.navigateRight",
+    "when": "editorFocus"
   }
 ]
