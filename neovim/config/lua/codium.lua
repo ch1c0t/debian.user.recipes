@@ -35,6 +35,9 @@ local mappings = {
   { 'n', '<leader>rf', 'editor.action.refactor' },
   { 'n', '<leader>qf', 'editor.action.quickFix' },
   { 'n', '<leader>sg', 'editor.action.triggerSuggest' },
+
+  { 'n', '<leader>fm', 'editor.action.formatDocument' },
+  { 'n', '<leader>oi', 'editor.action.organizeImports' },
 }
 
 for _, mapping in ipairs(mappings) do
