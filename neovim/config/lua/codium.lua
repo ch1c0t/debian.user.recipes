@@ -55,6 +55,16 @@ local mappings = {
   { 'n', '<leader>wh', 'workbench.action.splitEditorDown' },
   { 'n', '<leader>ww', 'workbench.action.joinTwoGroups' },
   { 'n', '<leader>wa', 'workbench.action.evenEditorWidths' },
+
+  { 'n', '<leader>u,', 'fileutils.newFile' },
+  { 'n', '<leader>u.', 'fileutils.newFolder' },
+  { 'n', '<leader>um', 'fileutils.newFileAtRoot' },
+  { 'n', '<leader>u/', 'fileutils.newFolderAtRoot' },
+  { 'n', '<leader>uc', 'fileutils.duplicateFile' },
+  { 'n', '<leader>ud', 'fileutils.removeFile' },
+  { 'n', '<leader>uu', 'fileutils.moveFile' },
+  { 'n', '<leader>ur', 'fileutils.renameFile' },
+  { 'n', '<leader>un', 'fileutils.copyFileName' },
 }
 
 for _, mapping in ipairs(mappings) do
