@@ -19,6 +19,7 @@ include_recipe 'nodejs'
 include_recipe 'rust'
 include_recipe 'ruby'
 include_recipe 'python'
+include_recipe 'lua'
 
 include_recipe 'clipboard'
 
