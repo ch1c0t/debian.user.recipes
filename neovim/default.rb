@@ -1,5 +1,11 @@
 HOME = ENV['HOME']
+NVIM_CONFIG = "#{HOME}/.config/nvim"
 
-remote_directory "#{HOME}/.config/nvim" do
+remote_directory NVIM_CONFIG do
   source 'config'
 end
+
+DIR = File.dirname __FILE__
+MOON = "#{DIR}/config/moon"
+
+execute "cd #{MOON} && moonc -t #{NVIM_CONFIG}/lua ."
