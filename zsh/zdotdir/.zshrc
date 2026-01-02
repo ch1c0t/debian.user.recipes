@@ -19,3 +19,5 @@
 for f in $ZDOTDIR/zsh.d/*.{sh,zsh}(N); do
   source $f
 done
+
+. $ZDOTDIR/source-local.sh
