@@ -17,6 +17,8 @@ export require_all = (path) ->
 
   pattern = joinpath lua_path, path, "*.lua"
   paths = glob pattern
+  if type(paths) == 'string'
+    paths = {paths}
 
   for _, path in pairs paths do
     relative_path = remove_prefix path, lua_path .. '/'
