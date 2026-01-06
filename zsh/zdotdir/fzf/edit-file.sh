@@ -10,3 +10,13 @@ function edit-file {
 
 zle -N edit-file
 bindkey '\eef' edit-file
+
+function edit-file-with-neovim {
+  (
+    EDITOR=nvim
+    edit-file
+  )
+}
+
+zle -N edit-file-with-neovim
+bindkey '^p' edit-file-with-neovim
