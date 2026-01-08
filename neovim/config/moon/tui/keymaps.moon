@@ -1,7 +1,3 @@
-map = (mode, keys) ->
-  for key, command in pairs keys do
-    vim.keymap.set mode, key, command
-
 map 'i',
   "jk": "<esc>"
 
