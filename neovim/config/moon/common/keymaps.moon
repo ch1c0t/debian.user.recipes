@@ -12,3 +12,4 @@ vim.keymap.set 'v', '<leader>x', ':lua<cr>'
 map 'n',
   "-": "<cmd>Oil<cr>"
   "<A-t>": "<C-^>"
+  "<A-cr>": "<cmd>lua print('alt+enter')<cr>"
