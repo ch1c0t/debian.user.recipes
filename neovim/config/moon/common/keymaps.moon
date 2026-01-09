@@ -11,3 +11,4 @@ vim.keymap.set 'v', '<leader>x', ':lua<cr>'
 
 map 'n',
   "-": "<cmd>Oil<cr>"
+  "<A-t>": "<C-^>"
