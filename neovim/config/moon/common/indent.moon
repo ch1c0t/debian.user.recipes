@@ -4,3 +4,4 @@ augment vim.opt,
   shiftwidth: 2
   expandtab: true
   tabstop: 2
+  softtabstop: 2
