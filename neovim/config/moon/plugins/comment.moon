@@ -1,0 +1,3 @@
+{
+  "nvim-mini/mini.nvim"
+}
