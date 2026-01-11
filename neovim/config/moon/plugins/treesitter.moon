@@ -1,5 +1,7 @@
 parsers = {
-  "lua"
+  "c", "lua", "vim", "vimdoc", "query", "elixir"
+  "javascript", "typescript", "html", "css"
+  "ruby", "python"
 }
 {
   "nvim-treesitter/nvim-treesitter"
