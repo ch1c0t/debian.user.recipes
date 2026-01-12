@@ -6,6 +6,9 @@ parsers = {
 {
   "nvim-treesitter/nvim-treesitter"
   branch: "master"
+  dependencies: {
+    { "nvim-treesitter/nvim-treesitter-textobjects", branch: "master" }
+  }
   build: ->
     for parser in *parsers
       vim.cmd "TSInstall #{parser}"
@@ -27,4 +30,19 @@ parsers = {
           node_incremental: "<Enter>"
           node_decremental: "<Backspace>"
           scope_incremental: false
+      textobjects:
+        select:
+          enable: true
+          lookahead: true
+          keymaps:
+            "af": "@function.outer"
+            "if": "@function.inner"
+            "ac": "@class.outer"
+            "ic": "@class.inner"
+            "as":
+              query: "@local.scope"
+              query_group: "locals"
+          selection_modes:
+            "@function.outer": 'V'
+            "@class.outer": '<c-v>'
 }
