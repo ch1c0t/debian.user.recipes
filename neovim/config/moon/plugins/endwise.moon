@@ -1,0 +1,3 @@
+{
+  "RRethy/nvim-treesitter-endwise"
+}
