@@ -24,6 +24,8 @@ include_recipe 'lua'
 include_recipe 'clipboard'
 
 include_recipe 'vim'
+
+include_recipe 'fonts'
 include_recipe 'neovim'
 include_recipe 'codium'
 

@@ -2,7 +2,7 @@
   "stevearc/oil.nvim"
   dependencies: {
     {
-      "nvim-mini/mini.icons"
+      "nvim-tree/nvim-web-devicons"
       opts: {}
     }
   }
