@@ -1,3 +1,4 @@
 {
-  "nvim-mini/mini.nvim"
+  "nvim-mini/mini.comment"
+  opts: {}
 }
