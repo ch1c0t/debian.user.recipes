@@ -71,19 +71,43 @@ parsers = {
         move:
           enable: true
           goto_next_start:
-            "]s":
-              query: "@local.scope"
-              query_group: "locals"
+            "]f": "@function.outer"
+            "]c": "@class.outer"
+            "]i": "@conditional.outer"
+            "]l": "@loop.outer"
+            "]m": "@call.outer"
+            "]b": "@block.outer"
+            "]a": "@parameter.inner"
+            "]/": "@comment.outer"
+            "]s": "@statement.outer"
+            "]=": "@assignment.outer"
+            "]r": "@return.outer"
           goto_next_end:
-            "]S":
-              query: "@local.scope"
-              query_group: "locals"
+            "]F": "@function.outer"
+            "]C": "@class.outer"
+            "]I": "@conditional.outer"
+            "]L": "@loop.outer"
+            "]M": "@call.outer"
+            "]B": "@block.outer"
+            "]A": "@parameter.inner"
           goto_previous_start:
-            "[s":
-              query: "@local.scope"
-              query_group: "locals"
+            "[f": "@function.outer"
+            "[c": "@class.outer"
+            "[i": "@conditional.outer"
+            "[l": "@loop.outer"
+            "[m": "@call.outer"
+            "[b": "@block.outer"
+            "[a": "@parameter.inner"
+            "[/": "@comment.outer"
+            "[s": "@statement.outer"
+            "[=": "@assignment.outer"
+            "[r": "@return.outer"
           goto_previous_end:
-            "[S":
-              query: "@local.scope"
-              query_group: "locals"
+            "[F": "@function.outer"
+            "[C": "@class.outer"
+            "[I": "@conditional.outer"
+            "[L": "@loop.outer"
+            "[M": "@call.outer"
+            "[B": "@block.outer"
+            "[A": "@parameter.inner"
 }
