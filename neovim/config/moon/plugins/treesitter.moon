@@ -42,6 +42,29 @@ parsers = {
             "as":
               query: "@local.scope"
               query_group: "locals"
+            "at": "@statement.outer"
+
+            "ai": "@conditional.outer"
+            "ii": "@conditional.inner"
+            "al": "@loop.outer"
+            "il": "@loop.inner"
+            "am": "@call.outer"
+            "im": "@call.inner"
+            "ab": "@block.outer"
+            "ib": "@block.inner"
+            "aa": "@parameter.outer"
+            "ia": "@parameter.inner"
+            "a/": "@comment.outer"
+            "i/": "@comment.inner"
+
+            "ga=": "@assignment.outer"
+            "gi=": "@assignment.inner"
+            "gl=": "@assignment.lhs"
+            "gr=": "@assignment.rhs"
+            "ar": "@return.outer"
+            "ir": "@return.inner"
+            "az": "@regex.outer"
+            "iz": "@regex.inner"
           selection_modes:
             "@function.outer": 'V'
             "@class.outer": '<c-v>'
