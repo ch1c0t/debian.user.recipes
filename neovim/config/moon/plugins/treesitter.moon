@@ -39,10 +39,7 @@ parsers = {
             "if": "@function.inner"
             "ac": "@class.outer"
             "ic": "@class.inner"
-            "as":
-              query: "@local.scope"
-              query_group: "locals"
-            "at": "@statement.outer"
+            "as": "@statement.outer"
 
             "ai": "@conditional.outer"
             "ii": "@conditional.inner"
