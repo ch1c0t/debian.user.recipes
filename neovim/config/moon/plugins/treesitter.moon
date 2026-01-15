@@ -68,4 +68,22 @@ parsers = {
           selection_modes:
             "@function.outer": 'V'
             "@class.outer": '<c-v>'
+        move:
+          enable: true
+          goto_next_start:
+            "]s":
+              query: "@local.scope"
+              query_group: "locals"
+          goto_next_end:
+            "]S":
+              query: "@local.scope"
+              query_group: "locals"
+          goto_previous_start:
+            "[s":
+              query: "@local.scope"
+              query_group: "locals"
+          goto_previous_end:
+            "[S":
+              query: "@local.scope"
+              query_group: "locals"
 }
