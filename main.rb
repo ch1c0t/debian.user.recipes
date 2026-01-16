@@ -10,6 +10,8 @@ include_recipe 'htop'
 
 include_recipe 'i3'
 include_recipe 'gtk'
+include_recipe 'fonts'
+include_recipe 'sakura'
 
 include_recipe 'mise'
 include_recipe 'crystal'
@@ -25,7 +27,6 @@ include_recipe 'clipboard'
 
 include_recipe 'vim'
 
-include_recipe 'fonts'
 include_recipe 'neovim'
 include_recipe 'codium'
 
