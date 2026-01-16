@@ -24,7 +24,7 @@ define :download, to: nil, extract_to: nil do
   end
 
   if url
-    tmp_directory = '/tmp/mitamae.download'
+    tmp_directory = File.expand_path '~/.local/state/mitamae/download'
     file_destination ||= begin
                            file_name = url.split('/').last
                            "#{tmp_directory}/#{file_name}"
