@@ -1,8 +1,0 @@
-[Unit]
-Description=The clipboard service
-
-[Service]
-ExecStart=ruby %h/sources/ruby/clipboard_service/main.rb
-
-[Install]
-WantedBy=default.target

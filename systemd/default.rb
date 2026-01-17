@@ -7,7 +7,6 @@ end
 
 %w[
 tmux.service
-clipboard.service
 ].each do |service|
   execute "systemctl --user enable #{service}"
 end
