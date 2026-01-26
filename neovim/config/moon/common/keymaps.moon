@@ -13,3 +13,7 @@ map 'n',
   "-": "<cmd>Oil<cr>"
   "<A-t>": "<C-^>"
   "<A-cr>": "<cmd>lua print('alt+enter')<cr>"
+  "<A-b>b": "ciw`<C-r>\"`<esc>"
+
+map 'i',
+  "<A-b>b": "``<esc>i"
