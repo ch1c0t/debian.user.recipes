@@ -1,0 +1,9 @@
+[Unit]
+Description=LavinMQ Message Broker
+
+[Service]
+ExecStart=/usr/bin/lavinmq -c %h/.config/lavinmq/lavinmq.ini
+Restart=always
+
+[Install]
+WantedBy=default.target

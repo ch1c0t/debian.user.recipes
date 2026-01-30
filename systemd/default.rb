@@ -7,6 +7,7 @@ end
 
 %w[
 tmux.service
+lavinmq.service
 ].each do |service|
   execute "systemctl --user enable #{service}"
 end

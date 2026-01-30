@@ -27,4 +27,5 @@ include_recipe 'vim'
 include_recipe 'neovim'
 include_recipe 'codium'
 
+include_recipe 'lavinmq'
 include_recipe 'systemd'
