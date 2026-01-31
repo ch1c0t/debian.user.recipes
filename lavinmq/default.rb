@@ -12,12 +12,17 @@ file "#{LAVIN_CONFIG}/lavinmq.ini" do
   content <<~S
     [main]
     data_dir = #{LAVIN_DATA}
+    metrics_http_port = -1
 
     [mgmt]
-    unix_path = #{LAVIN_SHARE}/mgmt.sock
+    port = -1
 
     [amqp]
     unix_path = #{LAVIN_SHARE}/amqp.sock
+    port = -1
+
+    [mqtt]
+    port = -1
 
     [clustering]
     enabled = false
