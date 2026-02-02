@@ -19,6 +19,7 @@ file "#{LAVIN_CONFIG}/lavinmq.ini" do
 
     [amqp]
     unix_path = #{LAVIN_SHARE}/amqp.sock
+    unix_proxy_protocol = 0
     port = -1
 
     [mqtt]
