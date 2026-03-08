@@ -32,7 +32,7 @@ define :download, to: nil, extract_to: nil do
     file_destination_path = File.dirname file_destination
     directory file_destination_path
     execute "wcurl --output #{file_destination} #{url}" do
-      not_if "file -f #{file_destination}"
+      not_if "test -f #{file_destination}"
     end
 
     if path_destination
