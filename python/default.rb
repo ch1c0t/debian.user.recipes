@@ -2,6 +2,7 @@ execute '~/.local/bin/mise use -g python@3.14'
 execute '~/.local/bin/mise use -g uv@latest'
 
 %w[
+pynvim
 yt-dlp
 litecli
 ffmpeg-normalize
