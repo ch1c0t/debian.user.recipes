@@ -15,3 +15,7 @@ class TestPlugin(object):
         message = f"Args received: {args}"
         self.nvim.command(f'echo "{message}"')
         return message
+
+    @pynvim.autocmd('BufEnter', pattern='*.py', eval='expand("<afile>")')
+    def do(self, filename):
+        self.nvim.out_write(f'Entered file: {filename}\n')
