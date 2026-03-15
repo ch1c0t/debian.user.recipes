@@ -7,6 +7,7 @@ class TestPlugin(object):
 
     @pynvim.command("MyPythonCommand")
     def my_command_handler(self):
+        self.nvim.command("vnew")
         self.nvim.current.line = "Hello from your Python plugin!"
 
     @pynvim.function("MyPythonFunction")
