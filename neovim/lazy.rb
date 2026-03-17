@@ -8,5 +8,7 @@ execute "git clone --filter=blob:none --branch=stable #{LAZYREPO} #{LAZYSOURCEPA
   not_if "test -d #{LAZYSOURCEPATH}"
 end
 
-execute "nvim --headless -c 'source #{NVIM_CONFIG}/lua/lazy/sync.lua'"
+execute "nvim --headless -c 'source #{NVIM_CONFIG}/lua/lazy/sync.lua'" do
+  not_if "test -d #{LAZYPATH}/fzf-lua"
+end
 execute "nvim --headless -c 'UpdateRemotePlugins' -c 'qall!'"

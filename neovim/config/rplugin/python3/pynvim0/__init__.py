@@ -28,6 +28,11 @@ class TestPlugin(object):
         self.nvim.command(f'echo "{message}"')
         return message
 
+    @pynvim.autocmd('*', eval='expand("<aevent>")')
+    def log(self, aevent):
+        buffer = self.nvim.current.buffer
+        ft = buffer.options['filetype']
+        self.nvim.out_write(f'Loggin {aevent} ft:{ft}')
     @pynvim.autocmd('BufEnter', pattern='*.py', eval='expand("<afile>")')
     def do(self, filename):
         self.nvim.out_write(f'Entered file: {filename}\n')
