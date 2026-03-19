@@ -1,5 +1,8 @@
 import pynvim
 
+import logging
+logging.basicConfig(filename='/tmp/pynvim.logging', level=logging.INFO)
+
 @pynvim.plugin
 class TestPlugin(object):
     def __init__(self, nvim):
@@ -23,7 +26,5 @@ class TestPlugin(object):
 
     @pynvim.function("MyPythonFunction")
     def my_function_handler(self, args):
-        # args will contain a list of arguments passed from Neovim
-        message = f"Args received: {args}"
-        self.nvim.command(f'echo "{message}"')
-        return message
+        data = args[0]
+        logging.info(data)
