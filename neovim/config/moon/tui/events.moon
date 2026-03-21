@@ -1,3 +1,5 @@
+group = vim.api.nvim_create_augroup 'MostEvents', clear: true
+
 remove_from = (t, elements) ->
   elements = {e,true for e in *elements}
   for index, element in ipairs t do
@@ -5,8 +7,6 @@ remove_from = (t, elements) ->
       table.remove t, index
 
 stream_autocmd_events = ->
-  group = vim.api.nvim_create_augroup 'AllEvents', clear: true
-
   -- https://github.com/wsdjeg/logevent.nvim
   events = vim.fn.getcompletion '', 'event'
   remove_from events, {
@@ -21,9 +21,12 @@ stream_autocmd_events = ->
         vim.fn.MyPythonFunction data
 
 -- a side effect of this breaks loading files on startup
-stream_autocmd_events!
+--stream_autocmd_events!
 
--- a workaround for the above
-if is_current_buffer_empty!
-  --p 'a workaround'
-  vim.cmd 'edit %'
+streaming_events = false
+vim.api.nvim_create_autocmd 'BufWinEnter',
+  group: group
+  callback: ->
+    if not stream_autocmd_events
+      streaming_events = true
+      stream_autocmd_events!
