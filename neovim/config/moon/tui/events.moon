@@ -21,11 +21,13 @@ stream_autocmd_events = ->
         vim.fn.MyPythonFunction data
 
 -- a side effect of this breaks loading files on startup
---stream_autocmd_events!
+stream_autocmd_events!
 
-streaming_events = false
+-- a workaround for the above
+file_not_loaded_yet = true
 timer = vim.uv.new_timer!
-timer\start 1000, 1000, vim.schedule_wrap ->
-  if (not streaming_events) and is_current_buffer_empty!
-    streaming_events = true
-    stream_autocmd_events!
+timer\start 100, 100, vim.schedule_wrap ->
+  if file_not_loaded_yet and is_current_buffer_empty!
+    vim.cmd 'edit %'
+    file_not_loaded_yet = false
+    timer\close!
