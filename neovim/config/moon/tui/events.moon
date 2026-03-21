@@ -22,3 +22,8 @@ stream_autocmd_events = ->
 
 -- a side effect of this breaks loading files on startup
 stream_autocmd_events!
+
+-- a workaround for the above
+if is_current_buffer_empty!
+  --p 'a workaround'
+  vim.cmd 'edit %'
