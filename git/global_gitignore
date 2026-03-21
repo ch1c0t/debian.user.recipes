@@ -39,4 +39,4 @@ venv
 *.tfvars
 
 dump.rdb
-nvim.sock
+.nvim.sock
