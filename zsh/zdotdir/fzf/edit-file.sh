@@ -19,7 +19,7 @@ bindkey '\eef' edit-file
 function edit-file-with-neovim {
   (
     EDITOR=nvim
-    edit-file --listen ./nvim.sock
+    edit-file --listen ./.nvim.sock
   )
 }
 
