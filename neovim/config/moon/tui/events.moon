@@ -24,9 +24,8 @@ stream_autocmd_events = ->
 --stream_autocmd_events!
 
 streaming_events = false
-vim.api.nvim_create_autocmd 'BufWinEnter',
-  group: group
-  callback: ->
-    if not stream_autocmd_events
-      streaming_events = true
-      stream_autocmd_events!
+timer = vim.uv.new_timer!
+timer\start 1000, 1000, vim.schedule_wrap ->
+  if (not streaming_events) and is_current_buffer_empty!
+    streaming_events = true
+    stream_autocmd_events!
