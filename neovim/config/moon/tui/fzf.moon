@@ -1,0 +1,10 @@
+map 'n',
+  "<C-p>": "<cmd>FzfLua files<cr>"
+  "<A-e>f": "<cmd>FzfLua files<cr>"
+  "<leader>fg": "<cmd>lua require('fzf-lua').live_grep()<CR>"
+  "<leader>fb": "<cmd>lua require('fzf-lua').buffers()<CR>"
+  "<leader>fo": "<cmd>lua require('fzf-lua').oldfiles()<CR>"
+  "<leader>fc": "<cmd>lua require('fzf-lua').commands()<CR>"
+  "<leader>fh": "<cmd>lua require('fzf-lua').command_history()<CR>"
+  "<leader>ft": "<cmd>lua require('fzf-lua').helptags()<CR>"
+  "<leader>fm": "<cmd>lua require('fzf-lua').manpages()<CR>"
