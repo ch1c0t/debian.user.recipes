@@ -10,9 +10,9 @@
       preset: 'super-tab'
     sources:
       default: {
+        'buffer'
         'path'
         'snippets'
-        'buffer'
       }
     fuzzy:
       implementation: 'rust'
