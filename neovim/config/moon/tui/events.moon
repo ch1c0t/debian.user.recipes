@@ -20,4 +20,5 @@ stream_autocmd_events = ->
       callback: (data) ->
         vim.fn.MyPythonFunction data
 
+-- a side effect of this breaks loading files on startup
 stream_autocmd_events!
