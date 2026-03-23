@@ -1,8 +1,10 @@
+-- fzf-lua select neovim tab page
 function FzfLuaTabs()
   local fzf = require("fzf-lua")
   local tabs = {}
 
   -- Iterate over all tab pages and get their details
+  -- https://neovim.io/doc/user/api/#nvim_list_tabpages()
   for i, tab in ipairs(vim.api.nvim_list_tabpages()) do 
     local windows = vim.api.nvim_tabpage_list_wins(tab)
     local bufnr = vim.api.nvim_win_get_buf(windows[1]) -- Get the buffer number of the first window in the tab
