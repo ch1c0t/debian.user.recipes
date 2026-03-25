@@ -4,4 +4,4 @@ augment vim.opt,
 map 'n',
   '<tab>a': '<cmd>tabnext #<cr>'
   '<tab>c': '<cmd>tabnew<cr>'
-  '<tab>x': close_current_tab
+  '<tab>x': '<cmd>tabclose<cr>'
