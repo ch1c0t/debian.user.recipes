@@ -5,7 +5,6 @@ LAVIN_SHARE = "#{HOME}/.local/share/lavinmq"
 LAVIN_DATA = "#{LAVIN_SHARE}/data"
 
 directory LAVIN_CONFIG
-directory LAVIN_SHARE
 directory LAVIN_DATA
 
 file "#{LAVIN_CONFIG}/lavinmq.ini" do
