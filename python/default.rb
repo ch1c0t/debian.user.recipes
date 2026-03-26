@@ -6,6 +6,7 @@ pynvim
 yt-dlp
 litecli
 ffmpeg-normalize
+"redis[hiredis]"
 ].each do |package|
   execute "pip install #{package}"
 end
