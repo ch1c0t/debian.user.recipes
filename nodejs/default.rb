@@ -5,6 +5,8 @@ npm
 pnpm
 frida
 coffeescript
+hobby-rpc.server
+hobby-rpc
 ].each do |package|
   execute "npm install --global #{package}"
 end
