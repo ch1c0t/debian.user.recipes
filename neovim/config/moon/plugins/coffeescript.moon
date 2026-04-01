@@ -1,0 +1,3 @@
+{
+  "kchmck/vim-coffee-script"
+}
