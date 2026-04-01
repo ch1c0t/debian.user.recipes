@@ -11,3 +11,5 @@ MOON = "#{DIR}/config/moon"
 execute "cd #{MOON} && moonc -t #{NVIM_CONFIG}/lua ."
 
 include_recipe 'lazy'
+
+execute "nvim --headless -c 'UpdateRemotePlugins' -c 'qall!'"
