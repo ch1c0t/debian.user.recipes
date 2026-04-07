@@ -9,6 +9,7 @@ DIR = File.dirname __FILE__
 MOON = "#{DIR}/config/moon"
 
 execute "cd #{MOON} && moonc -t #{NVIM_CONFIG}/lua ."
+execute "cd #{NVIM_CONFIG}/snippets && moonc -t . ."
 
 include_recipe 'lazy'
 
