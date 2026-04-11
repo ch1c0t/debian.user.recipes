@@ -3,3 +3,6 @@ map 'i',
 
 map 't',
   "jk": [[<C-\><C-n>]]
+
+map 'n',
+  "Y": "yy"
