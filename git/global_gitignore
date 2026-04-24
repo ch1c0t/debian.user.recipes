@@ -40,3 +40,4 @@ venv
 
 dump.rdb
 .nvim.sock
+.npmrc
