@@ -6,6 +6,7 @@ pnpm
 frida
 coffeescript
 hobby-rpc.server
+hobby-rpc.client
 hobby-rpc
 coffeelib
 ].each do |package|
