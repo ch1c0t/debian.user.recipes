@@ -12,6 +12,7 @@ pynvim
 yt-dlp
 ffmpeg-normalize
 litecli
+ptpython
 ].each do |package|
   execute "pip install #{package} --upgrade"
 end
