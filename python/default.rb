@@ -13,6 +13,8 @@ yt-dlp
 ffmpeg-normalize
 litecli
 ptpython
+libtmux
+tmuxp
 ].each do |package|
   execute "pip install #{package} --upgrade"
 end
