@@ -1,5 +1,7 @@
 execute '~/.local/bin/mise use -g python@3.14'
-execute '~/.local/bin/mise use -g uv@latest'
+execute 'pip uninstall uv'
+
+execute '~/.local/bin/mise use -g uv@0.11'
 
 %w[
 pip
