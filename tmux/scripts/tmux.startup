@@ -1,5 +1,4 @@
 #!/usr/bin/zsh
 export FZF_DEFAULT_OPTS='--reverse --height 100%'
 zoxide query --list > /dev/null &
-tmux new-session -d -s 0
 tmux new-session -d -s log 'journalctl --user --since today --follow'
