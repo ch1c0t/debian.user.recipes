@@ -12,6 +12,7 @@ pynvim
 yt-dlp
 ffmpeg-normalize
 litecli
+bpython
 ptpython
 libtmux
 tmuxp
