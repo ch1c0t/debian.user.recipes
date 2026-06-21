@@ -1,0 +1,3 @@
+{
+  "preservim/tagbar"
+}
