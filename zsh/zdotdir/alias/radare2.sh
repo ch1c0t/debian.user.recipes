@@ -1,3 +1,4 @@
+alias iaito='flatpak run org.radare.iaito'
 alias r2='flatpak run --command=r2 org.radare.iaito'
 alias r2agent='flatpak run --command=r2agent org.radare.iaito'
 alias r2frida-compile='flatpak run --command=r2frida-compile org.radare.iaito'
