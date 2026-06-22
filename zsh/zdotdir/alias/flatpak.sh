@@ -13,3 +13,4 @@ alias fp-permissions='flatpak --user info --show-permissions'
 
 alias fps='flatpak ps'
 alias fpen='flatpak enter'
+alias fpov='flatpak override'
