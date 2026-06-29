@@ -44,8 +44,13 @@ define :download, to: nil, extract_to: nil, extract: nil do
       not_if "test -f #{file_destination}"
     end
 
+    archive_exts = [
+      '.tar.xz',
+      '.tar.gz',
+    ]
+
     if extract_directory
-      if url.end_with? '.tar.xz'
+      if archive_exts.any? { |ext| url.end_with? ext }
         directory extract_directory
         execute "tar xf #{file_destination} -C #{extract_directory}"
       end
