@@ -18,5 +18,7 @@ if [ -n "$TMUX" ]; then
   tmux_pane_path="$tmux_panes/${TMUX_PANE:1}"
   mkdir -p $tmux_pane_path
 
-  tmux pipe-pane -o "cat >>$tmux_pane_path/log"
+  # tmux pipe-pane -o "cat >>$tmux_pane_path/log"
+  echo "PPID: $PPID"
+  echo "\$\$: $$"
 fi
