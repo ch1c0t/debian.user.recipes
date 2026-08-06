@@ -7,7 +7,7 @@ setopt appendhistory
 setopt sharehistory
 setopt incappendhistory
 
-eval "$(atuin init zsh)"
+# eval "$(atuin init zsh)"
 
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
