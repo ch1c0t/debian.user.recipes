@@ -13,6 +13,7 @@ define :links_in, to_each_file_in: nil do
       unless relatives.include? file
         link "#{destination_directory}/#{file}" do
           to "#{source_directory}/#{file}"
+          force true
         end
       end
     end

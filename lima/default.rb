@@ -2,7 +2,7 @@ HOME = ENV['HOME']
 
 include_recipe '../helpers'
 
-version = "2.1.3"
+version = "2.2.0"
 url = "https://github.com/lima-vm/lima/releases/download/v#{version}/lima-#{version}-Linux-x86_64.tar.gz"
 
 download url do
