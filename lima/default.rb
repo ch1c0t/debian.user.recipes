@@ -25,3 +25,5 @@ file "#{LIMA_CONFIG}/default.yml" do
       writable: true
   S
 end
+
+include_recipe '../ssh'
