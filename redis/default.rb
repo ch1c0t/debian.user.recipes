@@ -10,7 +10,7 @@ directory REDIS_DATA
 file "#{REDIS_CONFIG}/redis.conf" do
   content <<~S
     port 0
-    unixsocket #{REDIS_SHARE}/redis.sock
+    unixsocket #{REDIS_SHARE}/socket
     unixsocketperm 770
     dir #{REDIS_DATA}
   S
