@@ -11,7 +11,8 @@ execute "systemctl --user daemon-reload"
 tmux.service
 lavinmq.service
 redis.service
+xephyrd.service
 ].each do |service|
-  execute "systemctl --user enable #{service}"
+  execute "systemctl --user enable #{service} --now"
   # execute "systemctl --user reload-or-restart #{service}"
 end
