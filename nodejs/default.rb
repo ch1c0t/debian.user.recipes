@@ -1,15 +1,4 @@
-HOME = ENV['HOME']
-
 execute '~/.local/bin/mise use -g node@24'
-execute '~/.local/bin/mise use -g aube'
-
-AUBE_CONFIG ="#{HOME}/.config/aube"
-directory AUBE_CONFIG
-file "#{AUBE_CONFIG}/config.toml" do
-  content <<~S
-    blockExoticSubdeps = false
-  S
-end
 
 %w[
 npm
@@ -30,5 +19,5 @@ hobby-rpc.client
 hobby-rpc
 coffeelib
 ].each do |package|
-  execute "aube add --global github:ch1c0t/#{package}"
+  execute "npm install --global https://github.com/ch1c0t/#{package}#main"
 end
