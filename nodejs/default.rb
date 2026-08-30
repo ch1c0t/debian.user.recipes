@@ -9,11 +9,13 @@ coffeescript
   execute "npm install --global #{package}"
 end
 
+include_recipe '../repos'
+
 %w[
+coffeelib
 hobby-rpc.servers.nodejs
 hobby-rpc.clients.nodejs
 hobby-rpc.clients.js
-coffeelib
 ].each do |package|
-  execute "npm install --global https://github.com/ch1c0t/#{package}#main"
+  execute "cd #{REPOS_ROOT}/github/ch1c0t/#{package} && npm install && npm install --global ."
 end
