@@ -5,18 +5,14 @@ npm
 pnpm
 frida
 coffeescript
-hobby-rpc.server
-hobby-rpc.client
-hobby-rpc
-coffeelib
 ].each do |package|
   execute "npm install --global #{package}"
 end
 
 %w[
-hobby-rpc.server
-hobby-rpc.client
-hobby-rpc
+hobby-rpc.servers.nodejs
+hobby-rpc.clients.nodejs
+hobby-rpc.clients.js
 coffeelib
 ].each do |package|
   execute "npm install --global https://github.com/ch1c0t/#{package}#main"
