@@ -14,10 +14,8 @@ include_recipe 'fonts'
 include_recipe 'sakura'
 
 include_recipe 'mise'
-include_recipe 'crystal'
 include_recipe 'repos'
 include_recipe 'tmux'
-include_recipe 'xephyr'
 
 include_recipe 'nodejs'
 include_recipe 'rust'
