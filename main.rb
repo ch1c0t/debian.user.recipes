@@ -15,13 +15,8 @@ include_recipe 'fonts'
 include_recipe 'sakura'
 
 include_recipe 'mise'
+include_recipe 'dependencies'
 include_recipe 'repos'
-
-include_recipe 'nodejs'
-include_recipe 'rust'
-include_recipe 'ruby'
-include_recipe 'python'
-include_recipe 'lua'
 
 include_recipe 'vim'
 include_recipe 'neovim'
