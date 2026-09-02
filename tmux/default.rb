@@ -10,5 +10,4 @@ remote_directory "#{HOME}/.config/tmux" do
 end
 
 include_recipe 'scripts'
-include_recipe 'sessions'
 include_recipe 'pane_movements'
