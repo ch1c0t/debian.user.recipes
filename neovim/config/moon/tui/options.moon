@@ -18,3 +18,5 @@ toggle_visibility_of_hidden_characters = ->
 
 map 'n',
   "<A-o>v": toggle_visibility_of_hidden_characters
+
+toggle_visibility_of_hidden_characters!
