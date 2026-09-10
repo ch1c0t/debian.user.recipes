@@ -6,6 +6,7 @@ setopt hist_expire_dups_first
 setopt appendhistory
 setopt sharehistory
 setopt incappendhistory
+setopt HIST_IGNORE_SPACE
 
 # eval "$(atuin init zsh)"
 
