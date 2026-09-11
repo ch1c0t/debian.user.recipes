@@ -6,4 +6,5 @@ github:
     hobby-rpc.clients.js:
 
     tmux.select-or-create:
+    tmux.run:
     xephyr-run:

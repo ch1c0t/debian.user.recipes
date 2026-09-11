@@ -21,12 +21,5 @@ links_in "#{HOME}/.local/bin" do
   only_if "test -d #{REPOS_SOURCEPATH}/bin"
 end
 
-REPOS_CONFIG = "#{HOME}/.config/repos"
-directory REPOS_CONFIG
-
-REPOS_CONFIG_TREE = "#{REPOS_CONFIG}/tree.yml"
-remote_file REPOS_CONFIG_TREE do
-  source 'tree.yml'
-end
-
+include_recipe 'update_tree'
 execute "cd #{REPOS_ROOT} && #{HOME}/.local/bin/repos"
