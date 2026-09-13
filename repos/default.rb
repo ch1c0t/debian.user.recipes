@@ -21,5 +21,5 @@ links_in "#{HOME}/.local/bin" do
   only_if "test -d #{REPOS_SOURCEPATH}/bin"
 end
 
-include_recipe 'update_tree'
+include_recipe 'config'
 execute "cd #{REPOS_ROOT} && #{HOME}/.local/bin/repos"

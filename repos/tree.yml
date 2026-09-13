@@ -7,4 +7,5 @@ github:
 
     tmux.select-or-create:
     tmux.run:
+    crystal.rebuild:
     xephyr-run:
