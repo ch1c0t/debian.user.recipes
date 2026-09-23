@@ -1,15 +1,13 @@
 [Unit]
 Description=Xephyr Dynamic Spawn Daemon
-# 1. Express a hard dependency on your user-level redis.service
-After=redis.service
-Requires=redis.service
+After=lavinmq.service
+Requires=lavinmq.service
 
 [Service]
 Type=simple
 ExecStart=%h/.local/bin/xephyrd
 
-# Environment variables matching your local layout
-Environment=REDIS_UNIXSOCKET=%h/.local/share/redis/socket
+Environment=LAVINMQ_AMQP_UNIXSOCKET=%h/.local/share/lavinmq/amqp.sock
 Environment=DISPLAY=:0
 
 # If either service crashes, systemd will cleanly manage the restart loop
