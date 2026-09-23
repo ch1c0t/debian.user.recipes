@@ -3,7 +3,7 @@
 
 # 1. Run native rofi window switcher.
 # The script blocks here until you choose a window or cancel.
-if rofi -show window -matching fuzzy -sort; then
+if rofi -show window -matching fuzzy -sort -sorting-method fzf; then
     # 2. Rofi exited with 0 (success), meaning focus has already shifted.
     # Now ask i3 for the name of the currently focused workspace.
     WORKSPACE_NAME=$(i3-msg -t get_workspaces | jq -r '.[] | select(.focused==true) | .name')
