@@ -9,6 +9,7 @@ execute "systemctl --user daemon-reload"
 
 %w[
 tmux.service
+lavinmq.socket
 lavinmq.service
 redis.service
 xephyrd.service

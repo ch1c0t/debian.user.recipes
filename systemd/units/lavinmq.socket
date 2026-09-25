@@ -1,0 +1,9 @@
+[Unit]
+Description=LavinMQ AMQP User Socket
+
+[Socket]
+# This creates the unix socket instantly when systemd user manager starts
+ListenStream=%h/.local/share/lavinmq/amqp.sock
+
+[Install]
+WantedBy=sockets.target

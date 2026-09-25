@@ -1,8 +1,11 @@
 [Unit]
 Description=LavinMQ Message Broker
+Requires=lavinmq.socket
+After=lavinmq.socket
 
 [Service]
 ExecStart=/usr/bin/lavinmq -c %h/.config/lavinmq/lavinmq.ini
+Environment=AMQP_SYSTEMD_SOCKET_NAME=lavinmq-amqp.socket
 Restart=always
 PrivateTmp=true
 
