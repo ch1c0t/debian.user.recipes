@@ -9,3 +9,4 @@ github:
     tmux.run:
     crystal.rebuild:
     xephyr-run:
+    xephyr.context:
