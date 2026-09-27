@@ -6,3 +6,4 @@ map 't',
 
 map 'n',
   "Y": "yy"
+  '<leader>y': ':%y+<CR>'
