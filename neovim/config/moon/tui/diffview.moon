@@ -4,6 +4,7 @@ map "n",
   "<leader>gd": ":DiffviewOpen<cr>"
   "<leader>gx": ":DiffviewClose<cr>"
   "<leader>gh": ":DiffviewFileHistory %<cr>"
+  "<leader>gc": fzf.git_branches
 
 vim.keymap.set "n", "<leader>gb", ->
   fzf.git_branches
