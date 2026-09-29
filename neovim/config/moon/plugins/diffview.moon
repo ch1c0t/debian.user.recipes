@@ -1,0 +1,4 @@
+{
+  "sindrets/diffview.nvim"
+  opts: {}
+}
