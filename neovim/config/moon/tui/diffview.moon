@@ -1,6 +1,11 @@
 fzf = require "fzf-lua"
 
-vim.keymap.set "n", "<leader>g", ->
+map "n",
+  "<leader>gd": ":DiffviewOpen<cr>"
+  "<leader>gx": ":DiffviewClose<cr>"
+  "<leader>gh": ":DiffviewFileHistory %<cr>"
+
+vim.keymap.set "n", "<leader>gb", ->
   fzf.git_branches
     prompt: "Inspect Branch Commits ❯ "
     actions:
