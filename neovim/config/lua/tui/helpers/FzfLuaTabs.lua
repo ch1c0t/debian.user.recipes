@@ -38,4 +38,4 @@ function FzfLuaTabs()
 end
 
 -- Example keymap (normal mode, leader + t)
-vim.keymap.set("n", "<Leader>t", FzfLuaTabs, { silent = true, desc = "Fzf-lua select tab page" })
+vim.keymap.set("n", "<Leader>ts", FzfLuaTabs, { silent = true, desc = "Fzf-lua select tab page" })
