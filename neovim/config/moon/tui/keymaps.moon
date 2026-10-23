@@ -6,5 +6,4 @@ map 't',
 
 map 'n',
   "Y": "yy"
-  '<leader>yb': ':%y+<CR>'
   '<leader>rb': ':edit<CR>'
