@@ -10,3 +10,4 @@ github:
     crystal.rebuild:
     xephyr-run:
     xephyr.context:
+    srun:
