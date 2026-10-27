@@ -16,44 +16,54 @@ _G.yank_line_range = (start_line, end_line, first_line = nil, last_line = nil) -
   else
     print "Raw text yanked to X11 clipboard!"
 
--- Operator function called natively by the motion engine
+-- Options table extracted to a reusable variable
+map_opts = { expr: true, silent: true, desc: "Yank motion or current line to X11" }
+
+-- --- OPERATORS ---
+
+-- Wrapped operator
 _G.yank_wrapped_operator = (motion_type) ->
   start_line = vim.fn.line "'["
   end_line = vim.fn.line "']"
   _G.yank_line_range start_line, end_line, '```', '```'
 
-
--- --- KEYMAPS ---
-
--- [WRAPPED] <leader>yb + motion (e.g., <leader>ybip, <leader>ybG) or 7<leader>yb
-vim.keymap.set 'n', '<leader>yb', ->
-  vim.o.operatorfunc = "v:lua.yank_wrapped_operator"
-  if vim.v.count > 0
-    vim.fn.feedkeys "#{vim.v.count}g@_", "m"
-  else
-    vim.fn.feedkeys "g@", "m"
-
--- [WRAPPED] <leader>y. -> Wraps and yanks the current line(s)
-vim.keymap.set 'n', '<leader>y.', ':<C-u>lua _G.yank_line_range(vim.fn.line("."), vim.fn.line(".") + vim.v.count1 - 1, "```", "```")<CR>', { silent: true, desc: "Yank current line(s) wrapped" }
-
--- [WRAPPED] <leader>yB -> Wraps and yanks the entire buffer
-vim.keymap.set 'n', '<leader>yB', ':<C-u>lua _G.yank_line_range(1, vim.api.nvim_buf_line_count(0), "```", "```")<CR>', { silent: true, desc: "Yank entire buffer wrapped" }
-
--- [RAW] Operator function called natively by the motion engine
+-- Raw operator
 _G.yank_raw_operator = (motion_type) ->
   start_line = vim.fn.line "'["
   end_line = vim.fn.line "']"
   _G.yank_line_range start_line, end_line
 
--- --- NEW UNWRAPPED SHORTCUTS ---
 
--- [RAW] <leader>yx + motion (e.g., <leader>yxG, <leader>yxip) or 5<leader>yx
-vim.keymap.set 'n', '<leader>yx', ->
+-- --- NAMED MAPPING FUNCTIONS ---
+
+-- Dynamic wrapper handler
+handle_wrapped_yank = ->
+  vim.o.operatorfunc = "v:lua.yank_wrapped_operator"
+  if vim.v.count > 0
+    return "g@_"
+  else
+    vim.schedule ->
+      if vim.v.operator == 'g@' then vim.fn.feedkeys "_", "n"
+    return "g@"
+
+-- Dynamic raw handler
+handle_raw_yank = ->
   vim.o.operatorfunc = "v:lua.yank_raw_operator"
   if vim.v.count > 0
-    vim.fn.feedkeys "#{vim.v.count}g@_", "m"
+    return "g@_"
   else
-    vim.fn.feedkeys "g@", "m"
+    vim.schedule ->
+      if vim.v.operator == 'g@' then vim.fn.feedkeys "_", "n"
+    return "g@"
 
--- [RAW] <leader>yX -> Yanks the entire buffer to X11 completely raw
-vim.keymap.set 'n', '<leader>yX', ':<C-u>lua _G.yank_line_range(1, vim.api.nvim_buf_line_count(0))<CR>', { silent: true, desc: "Yank entire buffer raw to X11" }
+-- --- KEYMAPS ---
+
+-- [WRAPPED] <leader>yb (motion, count, or standalone current line)
+vim.keymap.set 'n', '<leader>yb', handle_wrapped_yank, map_opts
+
+-- [RAW] <leader>yx (motion, count, or standalone current line)
+vim.keymap.set 'n', '<leader>yx', handle_raw_yank, map_opts
+
+-- Buffer-wide shortcuts remain dedicated actions
+vim.keymap.set 'n', '<leader>yB', ':<C-u>lua _G.yank_line_range(1, vim.api.nvim_buf_line_count(0), "```", "```")<CR>', { silent: true, desc: "Yank entire buffer wrapped" }
+vim.keymap.set 'n', '<leader>yX', ':<C-u>lua _G.yank_line_range(1, vim.api.nvim_buf_line_count(0))<CR>', { silent: true, desc: "Yank entire buffer raw" }
