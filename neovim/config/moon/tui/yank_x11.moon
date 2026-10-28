@@ -1,8 +1,7 @@
--- Global function to fetch line ranges and yank directly to X11 registers (+ and *)
+-- 1. CHOOSE GLOBAL DEFINITIONS FIRST
 _G.yank_line_range = (start_line, end_line, first_line = nil, last_line = nil) ->
   lines = vim.api.nvim_buf_get_lines 0, start_line - 1, end_line, false
   
-  -- Only wrap if strings are explicitly passed for first/last lines
   if first_line and last_line
     table.insert lines, 1, first_line
     table.insert lines, last_line
@@ -16,10 +15,13 @@ _G.yank_line_range = (start_line, end_line, first_line = nil, last_line = nil) -
   else
     print "Raw text yanked to X11 clipboard!"
 
-map_opts = { expr: true, silent: true, desc: "Yank motion or current line to X11" }
 
--- --- OPERATORS ---
+-- 2. REUSABLE CONFIGURATION OPTIONS
+operator_opts = { expr: true, silent: true, desc: "Yank motion or current line to X11" }
+buffer_opts   = { silent: true, desc: "Yank entire buffer to X11" }
 
+
+-- 3. NATIVE OPERATORS FOR MOTIONS
 _G.yank_wrapped_operator = (motion_type) ->
   start_line = vim.fn.line "'["
   end_line = vim.fn.line "']"
@@ -31,37 +33,42 @@ _G.yank_raw_operator = (motion_type) ->
   _G.yank_line_range start_line, end_line
 
 
--- --- HELPER FOR DYNAMIC MOTIONS ---
-
--- Safely waits for a motion or falls back to the current line
-get_operator_keys = (operator_name) ->
-  vim.o.operatorfunc = "v:lua.#{operator_name}"
+-- 4. SCHEDULER & RANGE CALCULATORS
+get_operator_keys = (operator_name, is_wrapped) ->
   if vim.v.count > 0
-    return "g@_"
+    start_l = vim.fn.line "."
+    end_l = start_l + vim.v.count - 1
+    if is_wrapped
+      _G.yank_line_range start_l, end_l, '```', '```'
+    else
+      _G.yank_line_range start_l, end_l
+    return ""
+
+  vim.o.operatorfunc = "v:lua.#{operator_name}"
   
-  -- Peek for a motion key with a tiny timeout (matches timeoutlen)
-  -- If no key is pressed, we fallback to the current line '_'
   status, key = pcall vim.fn.getcharstr, { timeout: vim.o.timeoutlen }
-  
   if status and key != ""
     return "g@" .. key
   else
-    return "g@_"
+    start_l = vim.fn.line "."
+    if is_wrapped
+      _G.yank_line_range start_l, start_l, '```', '```'
+    else
+      _G.yank_line_range start_l, start_l
+    return ""
 
 
--- --- NAMED MAPPING FUNCTIONS ---
-
+-- 5. NAMED MAPPING FUNCTIONS
 handle_wrapped_yank = ->
-  return get_operator_keys "yank_wrapped_operator"
+  return get_operator_keys "yank_wrapped_operator", true
 
 handle_raw_yank = ->
-  return get_operator_keys "yank_raw_operator"
+  return get_operator_keys "yank_raw_operator", false
 
 
--- --- KEYMAPS ---
+-- 6. KEYMAP SETUPS
+vim.keymap.set 'n', '<leader>yb', handle_wrapped_yank, operator_opts
+vim.keymap.set 'n', '<leader>yx', handle_raw_yank, operator_opts
 
-vim.keymap.set 'n', '<leader>yb', handle_wrapped_yank, map_opts
-vim.keymap.set 'n', '<leader>yx', handle_raw_yank, map_opts
-
-vim.keymap.set 'n', '<leader>yB', ':<C-u>lua _G.yank_line_range(1, vim.api.nvim_buf_line_count(0), "```", "```")<CR>', { silent: true, desc: "Yank entire buffer wrapped" }
-vim.keymap.set 'n', '<leader>yX', ':<C-u>lua _G.yank_line_range(1, vim.api.nvim_buf_line_count(0))<CR>', { silent: true, desc: "Yank entire buffer raw" }
+vim.keymap.set 'n', '<leader>yB', ':<C-u>lua _G.yank_line_range(1, vim.api.nvim_buf_line_count(0), "```", "```")<CR>', buffer_opts
+vim.keymap.set 'n', '<leader>yX', ':<C-u>lua _G.yank_line_range(1, vim.api.nvim_buf_line_count(0))<CR>', buffer_opts
