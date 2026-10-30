@@ -11,6 +11,7 @@ file "#{LAVIN_CONFIG}/lavinmq.ini" do
   content <<~S
     [main]
     data_dir = #{LAVIN_DATA}
+    sync = false
     metrics_http_port = -1
 
     [mgmt]
