@@ -11,3 +11,4 @@ github:
     xephyr-run:
     xephyr.context:
     srun:
+    tmux.pane_movements:
